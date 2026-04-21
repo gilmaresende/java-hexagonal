@@ -1,10 +1,11 @@
 package com.udemy.hexagonal.application.core.usecase;
 
 import com.udemy.hexagonal.application.core.domain.Customer;
+import com.udemy.hexagonal.application.ports.in.InsertCustomerInputPort;
 import com.udemy.hexagonal.application.ports.out.FindAddressByZipCoreOutputPort;
 import com.udemy.hexagonal.application.ports.out.InsertCustomerOutputPort;
 
-public class InsertCustomerUseCase {
+public class InsertCustomerUseCase implements InsertCustomerInputPort {
 
     private final FindAddressByZipCoreOutputPort findAddressByZipCoreOutputPort;
 
@@ -15,6 +16,7 @@ public class InsertCustomerUseCase {
         this.insertCustomerOutputPort = insertCustomerOutputPort;
     }
 
+    @Override
     public void insert(Customer customer, String zipCode) {
         var address = findAddressByZipCoreOutputPort.find(zipCode);
         customer.setAddress(address);
