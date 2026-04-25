@@ -30,4 +30,19 @@ public class NamingConventionTest {
             )
             .as("Class with suffix Mapper should reside in package ..adapters.in.consumer.mapper, ..adapters.in.controller.mapper, ..adapters.out.client.mapper or ..adapters.out.repository.mapper");
 
+
+    @ArchTest
+    public static final ArchRule controller_reside_only_controller_package = classes()
+            .that()
+            .resideInAnyPackage("..adapters.in.controller")
+            .should()
+            .haveNameMatching(".*Controller");
+
+    @ArchTest
+    public static final ArchRule mapper_reside_only_mapper_package = classes()
+            .that()
+            .resideInAnyPackage("..mapper")
+            .should()
+            .haveNameMatching(".*Mapper")
+            .orShould().haveNameMatching(".*MapperImpl");
 }
