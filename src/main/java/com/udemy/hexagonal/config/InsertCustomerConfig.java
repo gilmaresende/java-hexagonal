@@ -3,6 +3,7 @@ package com.udemy.hexagonal.config;
 import com.udemy.hexagonal.adapters.out.FindAddressByZipCodeAdapter;
 import com.udemy.hexagonal.adapters.out.InsertCustomerAdapter;
 import com.udemy.hexagonal.application.core.usecase.InsertCustomerUseCase;
+import com.udemy.hexagonal.application.ports.out.SendCpfForValidationOutputPort;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -12,8 +13,9 @@ public class InsertCustomerConfig {
     @Bean
     public InsertCustomerUseCase insertCustomerUseCase(
             FindAddressByZipCodeAdapter findAddressByZipCodeAdapter,
-            InsertCustomerAdapter insertCustomerAdapter
+            InsertCustomerAdapter insertCustomerAdapter,
+            SendCpfForValidationOutputPort sendCpfForValidationOutputPort
     ) {
-        return new InsertCustomerUseCase(findAddressByZipCodeAdapter, insertCustomerAdapter);
+        return new InsertCustomerUseCase(findAddressByZipCodeAdapter, insertCustomerAdapter, sendCpfForValidationOutputPort);
     }
 }
