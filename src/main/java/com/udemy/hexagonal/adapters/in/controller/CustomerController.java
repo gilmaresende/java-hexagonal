@@ -8,7 +8,6 @@ import com.udemy.hexagonal.application.ports.in.DeleteCustomerByIdInputPort;
 import com.udemy.hexagonal.application.ports.in.FindCustomerInputPort;
 import com.udemy.hexagonal.application.ports.in.InsertCustomerInputPort;
 import com.udemy.hexagonal.application.ports.in.UpdateCustomerInputPort;
-import com.udemy.hexagonal.application.ports.out.DeleteCustomerByIdOutputPort;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
