@@ -23,7 +23,7 @@ public class KafkaProducerConfig {
     public ProducerFactory<String, String> producerFactory() {
         Map<String, Object> configProps = new HashMap<>();
         configProps.put(BOOTSTRAP_SERVERS_CONFIG, "localhost:9092");
-        configProps.put(GROUP_ID_CONFIG, "arantes");
+        configProps.put(GROUP_ID_CONFIG, "udemy-kafka");
         configProps.put(KEY_SERIALIZER_CLASS_CONFIG, StringSerializer.class);
         configProps.put(VALUE_SERIALIZER_CLASS_CONFIG, StringSerializer.class);
         return new DefaultKafkaProducerFactory<>(configProps);
