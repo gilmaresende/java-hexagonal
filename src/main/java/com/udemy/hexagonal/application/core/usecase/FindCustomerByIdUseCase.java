@@ -15,6 +15,6 @@ public class FindCustomerByIdUseCase implements FindCustomerInputPort {
 
     public Customer find(String id) {
         return findCustomerByIdOutputPort.find(id)
-                .orElseThrow(() -> new ObjectNotFoundException("Customer not found"));
+                .orElseThrow(() -> new ObjectNotFoundException(id));
     }
 }
